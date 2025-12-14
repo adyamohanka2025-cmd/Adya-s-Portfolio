@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adya Mohanka - Vintage Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Colors matching the vintage aesthetic */
+            --color-primary: #8a5a44; /* Sepia/Rose Brown */
+            --color-primary-hover: #6d4c41;
+            --color-secondary: #5e5240;
+            --color-text: #2c2420; /* Darker Sepia */
+            --color-text-light: #5c504a; 
+            --color-bg: #e6dace; 
+            --color-surface: rgba(253, 250, 245, 0.92); 
+            --color-card-bg: rgba(255, 252, 248, 0.85); 
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --duration: 250ms;
+            
+            /* Font Variables */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Georgia', 'Times New Roman', serif;
+        }
+
+        * { box-sizing: border-box; }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            
+            /* --- UPDATED: DIFFERENT IMAGE SOURCE (Pexels) --- */
+            /* Girl in a garden/field with a vintage dreamy vibe */
+            background-image: url('https://images.pexels.com/photos/1468419/pexels-photo-1468419.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Keeps image still while scrolling */
+            background-repeat: no-repeat;
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(248, 241, 227, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 100;
+            border-bottom: 2px solid var(--color-primary);
+            padding: var(--spacing-md) 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 600;
+            font-family: var(--font-heading);
+            font-style: italic;
+            color: var(--color-primary);
+            text-decoration: none;
+            text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: var(--spacing-lg);
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color var(--duration);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: var(--font-body);
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            /* Semi-transparent gradient to let the flower show through slightly */
+            background: linear-gradient(135deg, rgba(138, 90, 68, 0.4) 0%, rgba(94, 82, 64, 0.3) 100%);
+            color: white;
+            padding: 100px var(--spacing-lg);
+            text-align: center;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 4px double white;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            background: rgba(0, 0, 0, 0.1); /* Very subtle overlay */
+            padding: 50px;
+            border-radius: var(--radius);
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            margin: 0 0 var(--spacing-md) 0;
+            font-weight: 500;
+            font-family: var(--font-heading);
+            font-style: italic;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: slideInDown 0.8s ease-out;
+            line-height: 1.2;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin: 0 0 var(--spacing-lg) 0;
+            font-family: var(--font-heading);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+            opacity: 1;
+            color: white;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--duration);
+            border: 2px solid var(--color-surface);
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            font-family: var(--font-body);
+        }
+
+        .btn-primary {
+            background: var(--color-surface);
+            color: var(--color-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            background: white;
+            color: var(--color-primary-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px var(--spacing-lg);
+        }
+
+        section h2 {
+            font-size: 46px;
+            margin: 0 0 var(--spacing-lg) 0;
+            text-align: center;
+            color: var(--color-primary);
+            font-family: var(--font-heading);
+            font-style: italic;
+            
+            /* WHITE OUTLINE EFFECT */
+            text-shadow: 
+                -1px -1px 0 #ffffff,  
+                 1px -1px 0 #ffffff,
+                -1px  1px 0 #ffffff,
+                 1px  1px 0 #ffffff;
+            
+            border-bottom: 1px solid rgba(138,90,68, 0.3);
+            display: inline-block;
+            padding-bottom: 10px;
+            opacity: 0.95;
+        }
+        
+        .section-header-container {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .project-card {
+            background: var(--color-card-bg);
+            border-radius: var(--radius);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow);
+            transition: all var(--duration);
+            cursor: pointer;
+            border: 1px solid rgba(138, 90, 68, 0.2);
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 6px; left: 6px; right: 6px; bottom: 6px;
+            border: 1px dashed rgba(138, 90, 68, 0.4);
+            border-radius: 4px;
+            pointer-events: none;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            background: rgba(255, 255, 255, 0.95);
+            border-color: var(--color-primary);
+        }
+
+        .project-card h3 {
+            margin: 0 0 var(--spacing-sm) 0;
+            color: var(--color-primary);
+            font-family: var(--font-heading);
+            font-size: 26px;
+            border-bottom: 1px solid rgba(138, 90, 68, 0.2);
+            padding-bottom: 8px;
+        }
+
+        .project-card p {
+            margin: 12px 0;
+            color: var(--color-text);
+            font-size: 16px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin: var(--spacing-md) 0;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(138, 90, 68, 0.1);
+            color: var(--color-primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid rgba(138, 90, 68, 0.3);
+            font-family: sans-serif;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .skill-card {
+            background: var(--color-card-bg);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(138, 90, 68, 0.2);
+            transition: all var(--duration);
+            backdrop-filter: blur(5px);
+        }
+
+        .skill-card:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-3px);
+            background: #fff;
+        }
+
+        .skill-card h3 {
+            margin: var(--spacing-md) 0 var(--spacing-sm) 0;
+            color: var(--color-primary);
+            font-family: var(--font-heading);
+            font-size: 24px;
+        }
+
+        .skill-card p {
+            color: var(--color-text-light);
+            font-size: 15px;
+        }
+
+        /* Achievements */
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .achievement-item {
+            background: rgba(255, 255, 255, 0.8);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius);
+            border-left: 5px solid var(--color-primary);
+            transition: all var(--duration);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(4px);
+        }
+
+        .achievement-item:hover {
+            transform: translateX(5px);
+            background: white;
+        }
+
+        .achievement-item h3 {
+            margin: 0 0 var(--spacing-sm) 0;
+            color: var(--color-primary);
+            font-family: var(--font-heading);
+            font-size: 24px;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: rgba(138, 90, 68, 0.9);
+            color: white;
+            text-align: center;
+            border-top: 4px double white;
+            margin-top: 40px;
+        }
+
+        #contact h2 {
+            color: white;
+            text-shadow: none;
+            font-family: var(--font-heading);
+            font-style: italic;
+            border-bottom: none;
+            opacity: 1; /* Keep contact heading fully visible against dark background */
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            color: white !important;
+            text-decoration: none;
+            transition: all var(--duration);
+            border: 2px solid white;
+            font-weight: bold;
+            font-size: 16px;
+            font-family: var(--font-body);
+        }
+
+        .contact-link:hover {
+            background: white;
+            color: var(--color-primary) !important;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #4a3b32;
+            color: #dcdcdc;
+            text-align: center;
+            padding: var(--spacing-lg);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+            font-family: sans-serif;
+            letter-spacing: 1px;
+        }
+
+        /* Animations */
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 38px; }
+            .hero p { font-size: 18px; }
+            nav ul { flex-direction: column; gap: var(--spacing-md); }
+            section h2 { font-size: 32px; }
+            .contact-links { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Adya Mohanka</a>
+            <ul>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>An Inquisitive Learner and a Curious Explorer!</h1>
+            <p>A quiet being with galaxies unfolding in her mind.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="container">
+        <div class="section-header-container">
+            <h2>Featured Projects</h2>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3> Vision Stick</h3>
+                <p>AI-powered object detection device with real-time alerts. Uses computer vision to detect objects and alerts the user through buzzer and vibratory sensor feedback.</p>
+                <div class="tech-tags">
+                    <span class="tag">ESP32-CAM</span>
+                    <span class="tag">Edge Impulse</span>
+                    <span class="tag">Buzzer</span>
+                    <span class="tag">Vibration Sensor</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3> Ultrasonic Obstacle Detection</h3>
+                <p>Autonomous object detection system using Arduino Uno and ultrasonic sensors. Detects nearby objects in real-time and provides comprehensive distance and position data.</p>
+                <div class="tech-tags">
+                    <span class="tag">Arduino Uno</span>
+                    <span class="tag">Ultrasonic Sensor</span>
+                    <span class="tag">C++</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3> Election Portal</h3>
+                <p>Secure online voting platform with real-time data collection. Users enter voting data stored in Firebase with automatic verification emails sent via Gmail.</p>
+                <div class="tech-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">Firebase</span>
+                    <span class="tag">Gmail API</span>
+                    <span class="tag">Python</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3> Prison Management System</h3>
+                <p>Comprehensive data management system for prisoner records. Efficiently collects, sorts, and retrieves prisoner information with organized database structure.</p>
+                <div class="tech-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Database</span>
+                    <span class="tag">Data Sorting</span>
+                    <span class="tag">File Management</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="container">
+        <div class="section-header-container">
+            <h2>Technical Skills</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3> Programming</h3>
+                <p>Python, Arduino, MATLAB/Octave, HTML/CSS/JavaScript</p>
+            </div>
+            <div class="skill-card">
+                <h3> IoT & Hardware</h3>
+                <p>Circuit design, TinkerCAD, OrCAD</p>
+            </div>
+            <div class="skill-card">
+                <h3> Web Development</h3>
+                <p>Flask, Firebase, Real-time databases</p>
+            </div>
+            <div class="skill-card">
+                <h3> Data & Physics</h3>
+                <p>Signal processing, Thermodynamics, Simulation</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="container">
+        <div class="section-header-container">
+            <h2>Achievements & Recognition</h2>
+        </div>
+        <div class="achievements">
+            <div class="achievement-item">
+                <h3> Hackathons</h3>
+                <p><strong>Participation:</strong> Multiple competitions | <strong>Topics:</strong> AI and Coding</p>
+            </div>
+            <div class="achievement-item">
+                <h3> NCC</h3>
+                <p><strong>Rank:</strong> 2nd Year NCC Cadet | <strong>Status:</strong> Active Participant</p>
+            </div>
+            <div class="achievement-item">
+                <h3> Talent Hunt Competition</h3>
+                <p><strong>Achievement:</strong> Nationally Secured 3rd Position | <strong>Recognition:</strong> National Level</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <p>I'm always interested in collaborating on interesting projects and learning new technologies.</p>
+            
+            <div class="contact-links">
+                <a href="https://github.com/adyamohanka2025-cmd" class="contact-link" target="_blank">
+                    <span>GitHub</span> →
+                </a>
+                <a href="https://www.linkedin.com/in/adya-mohanka-550b3630a/" class="contact-link" target="_blank">
+                    <span>LinkedIn</span> →
+                </a>
+                <a href="mailto:adyamohanka2007@gmail.com" class="contact-link">
+                    <span>Email</span> →
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Adya Mohanka. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
